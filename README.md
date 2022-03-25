@@ -8,8 +8,7 @@ I would charaterize this as quasi-serverless. Simply put, a TCP
 connection request spins up a simple web server that will time out
 after ten seconds. This won't scale beyond one instance and spin
 down is simply based on a timeout. Full serverless implementations
-can provide more sophisticated spin up/down criteria as well as
-auto-scaling.
+can provide more sophisticated features like auto-scaling.
 
 ## Setup
 ### Install RHEL 9
@@ -21,16 +20,16 @@ sure that the command `ip route get 8.8.8.8 |awk '{print $7; exit}'`
 returns the IP address of your host, whether its a virtual or
 physical installation.
 
-This demo doesn't technically require RHEL 9 but you will need
-systemd release 246 or later for auto-scale down to work correctly.
-RHEL 9 beta includes systemd 250.
+RHEL 9 beta is used since it includes systemd release 250. The
+auto-scale down feature was added to systemd-socket-proxyd in systemd
+release 246.
 
 ### Run the setup scripts
 Copy (or git clone) this project onto your Linux host. Change to
 the directory where you've copied this content (e.g. my directory
 matches the name of this project as shown below):
 
-    cd ~/rootless-serverless-podman-systemd
+    cd ~/rootless-serverless-with-podman-and-systemd
 
 Make sure the above directory matches the location of the files in
 this project.
