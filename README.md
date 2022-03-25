@@ -180,6 +180,8 @@ to do this by enabling the `linger` option..
     sudo loginctl enable-linger $USER
     loginctl show-user $USER
 
+You should see `Linger=yes` listed in the user parameters.
+
 ### Try it out
 Let's test the socket activation facility by connecting to our web
 server. When we send an http request to our host IP address and
@@ -268,6 +270,12 @@ Modify the `ExecStart` line for the proxy service to include the
 the following:
 
     ExecStart=/usr/lib/systemd/systemd-socket-proxyd --exit-idle-time=10 127.0.0.1:8080
+
+That line sets the timeout to ten seconds of inactivity. Use your
+preferred editor to make this change. The vi editor is used in the
+line below.
+
+    vi ~/.config/systemd/user/container-httpd-proxy.service
 
 That line sets the timeout to ten seconds of inactivity. Notify
 systemd that the local configuration files have changed.
