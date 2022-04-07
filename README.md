@@ -87,7 +87,7 @@ pulls the image, and sets the configuration metadata for the container
 instance.
 
     podman create --name httpd -p 127.0.0.1:8080:80 \
-        --label=io.containers.autoupdate=registry $HOSTIP:5000/httpd:prod
+        --label io.containers.autoupdate=registry $HOSTIP:5000/httpd:prod
 
 The label `io.containers.autoupdate` will be used later when we
 demonstrate the `podman auto-update` command.
