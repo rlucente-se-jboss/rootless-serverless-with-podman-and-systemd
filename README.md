@@ -12,17 +12,18 @@ can provide more sophisticated features like auto-scaling.
 
 ## Setup
 ### Install RHEL 9
-Start with a minimal install of RHEL 9 (in beta now). You can
-download RHEL 9 for free at the [Red Hat Developer site](https://developers.redhat.com/products/rhel/overview).
+Start with a minimal install of RHEL 9. You can download RHEL 9 for
+free at the
+[Red Hat Developer site](https://developers.redhat.com/products/rhel/overview).
 
 In my install, I enabled a single network interface. Please make
-sure that the command `ip route get 8.8.8.8 |awk '{print $7; exit}'`
+sure that the command `ip route get 8.8.8.8 | awk '{print $7; exit}'`
 returns the IP address of your host, whether its a virtual or
 physical installation.
 
-RHEL 9 beta is used since it includes systemd release 250. The
-auto-scale down feature was added to systemd-socket-proxyd in systemd
-release 246.
+RHEL 9 is used since it includes systemd release 250. The auto-scale
+down feature was added to systemd-socket-proxyd in systemd release
+246.
 
 ### Run the setup scripts
 Copy (or git clone) this project onto your Linux host. Change to
